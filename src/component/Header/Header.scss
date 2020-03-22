@@ -1,0 +1,26 @@
+.header {
+    background-color: #333;
+    color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+.logo {
+    font-size: 80px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.color__decoration {
+    color: #ff6b6b;
+}
