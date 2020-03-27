@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/project-theatre/static/css/main.ad88cd0d.chunk.css",
+    "main.js": "/project-theatre/static/js/main.67095d12.chunk.js",
+    "main.js.map": "/project-theatre/static/js/main.67095d12.chunk.js.map",
+    "runtime-main.js": "/project-theatre/static/js/runtime-main.ffe5e38a.js",
+    "runtime-main.js.map": "/project-theatre/static/js/runtime-main.ffe5e38a.js.map",
+    "static/css/2.e60ae883.chunk.css": "/project-theatre/static/css/2.e60ae883.chunk.css",
+    "static/js/2.9ed3acd8.chunk.js": "/project-theatre/static/js/2.9ed3acd8.chunk.js",
+    "static/js/2.9ed3acd8.chunk.js.map": "/project-theatre/static/js/2.9ed3acd8.chunk.js.map",
+    "index.html": "/project-theatre/index.html",
+    "precache-manifest.a31011e5766d632a85cc58daa73206dc.js": "/project-theatre/precache-manifest.a31011e5766d632a85cc58daa73206dc.js",
+    "service-worker.js": "/project-theatre/service-worker.js",
+    "static/css/2.e60ae883.chunk.css.map": "/project-theatre/static/css/2.e60ae883.chunk.css.map",
+    "static/css/main.ad88cd0d.chunk.css.map": "/project-theatre/static/css/main.ad88cd0d.chunk.css.map",
+    "static/js/2.9ed3acd8.chunk.js.LICENSE.txt": "/project-theatre/static/js/2.9ed3acd8.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/project-theatre/static/media/slick.f97e3bbf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ffe5e38a.js",
+    "static/css/2.e60ae883.chunk.css",
+    "static/js/2.9ed3acd8.chunk.js",
+    "static/css/main.ad88cd0d.chunk.css",
+    "static/js/main.67095d12.chunk.js"
+  ]
+}
