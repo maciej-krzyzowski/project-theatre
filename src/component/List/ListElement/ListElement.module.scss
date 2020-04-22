@@ -1,0 +1,122 @@
+.spectacles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 8px;
+    box-shadow: -5px 5px 15px 0px rgba(0, 0, 0, 0.25);
+    margin: 40px 0;
+    padding: 35px;
+    color: black;
+}
+
+.listImg {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+}
+
+.title {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.director {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.description {
+    font-size: 20px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.amountActive {
+    display: none;
+    align-self: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.active {
+    &:hover {
+        cursor: default;
+    }
+
+    .amountActive {
+        display: flex;
+    }
+
+    .description {
+        display: block;
+    }
+}
+
+@media (max-width: 800px) {
+    .listImg {
+        height: 125px;
+        width: 125px;
+    }
+
+    .wrapper {
+        margin-left: 25px;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .director {
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .spectacles {
+        padding: 10px;
+        margin: 15px 0;
+    }
+
+    .listImg {
+        height: 100px;
+        width: 100px;
+    }
+
+    .wrapper {
+        margin-left: 15px;
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .director {
+        font-size: 10px;
+        margin-bottom: 14px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+}

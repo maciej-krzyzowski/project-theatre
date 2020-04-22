@@ -1,16 +1,10 @@
-import React from 'react';
-import './Container.scss';
-import PropTypes from 'prop-types';
+import React from "react";
+import styles from "./Container.module.scss";
+import PropTypes from "prop-types";
 
-class Container extends React.Component {
-    render() {
-        return (
-            <div className="container">
-                {this.props.children}
-            </div>
-        )
-    }
-}
+const Container = ({ children }) => {
+    return <div className={styles.container}>{children}</div>;
+};
 
 Container.propTypes = {
     children: PropTypes.node,

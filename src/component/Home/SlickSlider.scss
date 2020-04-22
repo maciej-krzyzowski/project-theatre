@@ -1,0 +1,24 @@
+.slick-next {
+    right: 30px;
+
+    &::before {
+        font-size: 40px;
+        color: #ff6b6b;
+    }
+}
+
+.slick-prev {
+    left: 10px;
+    z-index: 100;
+
+    &::before {
+        font-size: 40px;
+        color: #ff6b6b;
+    }
+}
+
+.slick-slide img {
+    object-fit: cover;
+    width: 100vw;
+    height: 85vh;
+}

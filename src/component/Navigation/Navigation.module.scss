@@ -1,0 +1,93 @@
+.header {
+    background-color: #333;
+    color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+.logo {
+    font-size: 70px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.decoration {
+    color: #ff6b6b;
+}
+
+.list {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.element {
+    text-transform: uppercase;
+    margin: 0 30px;
+    list-style-type: none;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.active {
+    color: #ff6b6b;
+}
+
+@media (max-width: 1024px) {
+    @keyframes animationList {
+        from {
+            right: -100%;
+        }
+        to {
+            right: 0;
+        }
+    }
+
+    .header {
+        position: relative;
+    }
+
+    .logo {
+        font-size: 60px;
+    }
+
+    .list {
+        display: none;
+    }
+
+    .listActive {
+        position: absolute;
+        right: 0;
+        top: 10vh;
+        height: 90vh;
+        width: 100vw;
+        z-index: 999;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #333;
+        animation-name: animationList;
+        animation-duration: 0.5s;
+    }
+
+    .element {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        margin: 0 15px;
+    }
+}

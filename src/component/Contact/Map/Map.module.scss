@@ -1,0 +1,25 @@
+.map {
+    height: 60vh;
+    flex: 1;
+    border-radius: 10px;
+}
+
+.marker {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    i {
+        display: inline;
+        color: red;
+    }
+}
+
+@media (max-width: 900px) {
+    .map {
+        width: 85vw;
+    }
+}

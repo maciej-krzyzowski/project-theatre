@@ -1,22 +1,20 @@
-import React from 'react';
-import './Footer.scss';
-import Container from './../Container/Container'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopyright } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import styles from "./Footer.module.scss";
+import Container from "./../Container/Container";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer className={styles.footer}>
             <Container>
-                <div className="footer__wrapper">
-                    <p>
-                        <FontAwesomeIcon icon={faCopyright} /> 
-                        2020 Maciej Krzyżowski
-                    </p>
-                </div>
+                <p>
+                    <FontAwesomeIcon icon={faCopyright} />
+                    2020 Maciej Krzyżowski
+                </p>
             </Container>
         </footer>
-    )
-}
+    );
+};
 
 export default Footer;
