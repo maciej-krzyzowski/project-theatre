@@ -4,8 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./SlickSlider.scss";
-import Navigation from "../Navigation/Navigation";
-import Footer from "../Footer/Footer";
+import { carusel } from "../../data/carusel";
 
 class Home extends Component {
     caruselElements = [
@@ -31,18 +30,6 @@ class Home extends Component {
     ];
 
     render() {
-        const settings = {
-            dots: true,
-            arrows: window.innerWidth <= 1024 ? false : true,
-            infinite: true,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            speed: 750,
-            draggable: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-        };
-
         const caruselElement = this.caruselElements.map((element) => (
             <div className={styles.wrapper} key={element.id}>
                 <img src={element.img} alt={element.title} />
@@ -55,13 +42,9 @@ class Home extends Component {
         ));
 
         return (
-            <>
-                <Navigation />
-                <div className={styles.carusel}>
-                    <Slider {...settings}>{caruselElement}</Slider>
-                </div>
-                <Footer />
-            </>
+            <div className={styles.carusel}>
+                <Slider {...carusel}>{caruselElement}</Slider>
+            </div>
         );
     }
 }

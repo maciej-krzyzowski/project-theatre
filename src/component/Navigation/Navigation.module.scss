@@ -65,14 +65,14 @@ a {
         display: none;
     }
 
-    .listActive {
+    .listActvie {
+        display: inline-flex;
         position: absolute;
         right: 0;
         top: 10vh;
         height: 90vh;
         width: 100vw;
-        z-index: 999;
-        display: inline-flex;
+        z-index: 1;
         flex-direction: column;
         justify-content: center;
         align-items: center;

@@ -35,7 +35,7 @@ class Navigation extends React.Component {
                                 animationDuration={0.5}
                             />
                         ) : null}
-                        <ul className={this.state.open ? styles.listActive : styles.list}>
+                        <ul className={this.state.open ? styles.listActvie : styles.list}>
                             <li className={styles.element}>
                                 <NavLink exact activeClassName={styles.active} to="/">
                                     Home

@@ -8,11 +8,11 @@ class ListElement extends Component {
         const { title, description, director, image, price } = this.props;
         return (
             <NavLink
-                to={`/spectacles/${title}`}
+                to={`/spectacle/${title}`}
                 className={styles.spectacles}
                 activeClassName={styles.active}
             >
-                <img className={styles.listImg} src={image} alt="zdjecie" />
+                <img className={styles.listImg} src={image} alt={title} />
                 <div className={styles.wrapper}>
                     <h2 className={styles.title}>{title}</h2>
                     <p className={styles.director}>{director}</p>
