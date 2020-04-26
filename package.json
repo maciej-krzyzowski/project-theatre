@@ -24,6 +24,7 @@
     "react-scripts": "3.4.0",
     "react-slick": "^0.25.2",
     "reset-css": "^5.0.1",
+    "serve": "^11.3.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

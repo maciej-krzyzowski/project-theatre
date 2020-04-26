@@ -2,12 +2,15 @@ import React from "react";
 import styles from "./Map.module.scss";
 import GoogleMapReact from "google-map-react";
 
-const Marker = ({ text }) => (
-    <div className={styles.marker}>
-        {text}
-        {<i class="fas fa-map-marker"></i>}
-    </div>
-);
+const Marker = ({ text }) => {
+    const marker = <i class="fas fa-map-marker"></i>;
+    return (
+        <div className={styles.marker}>
+            {text}
+            {marker}
+        </div>
+    );
+};
 
 const Map = () => {
     return (

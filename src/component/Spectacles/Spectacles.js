@@ -17,7 +17,6 @@ class List extends Component {
     }
 
     handleChange = (e) => {
-        const { spectacles } = this.state;
         const { value } = e.target;
         const query = value.toLowerCase();
         let filteredList = spectacles;
