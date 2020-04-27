@@ -12,7 +12,7 @@
     flex-direction: column;
     align-items: center;
 
-    i {
+    :last-child {
         display: inline;
         color: red;
     }
