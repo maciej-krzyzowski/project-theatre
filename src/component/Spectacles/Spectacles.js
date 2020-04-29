@@ -1,39 +1,30 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import styles from "./List.module.scss";
 import ListElement from "./ListElement/ListElement";
 import Container from "../Container/Container";
-import { spectacles } from "../../data/spectacles";
+import { filteredList as filteredListAction } from "../../actions/index";
 
 class List extends Component {
     state = {
-        spectacles: [],
+        spectacles: this.props.spectacles,
         search: "",
     };
 
-    componentDidMount() {
-        this.setState({
-            spectacles: spectacles,
-        });
-    }
-
     handleChange = (e) => {
         const { value } = e.target;
-        const query = value.toLowerCase();
-        let filteredList = spectacles;
-
-        if (value.length >= 3) {
-            filteredList = spectacles.filter((spectacle) =>
-                spectacle.title.toLowerCase().includes(query)
-            );
-        }
+        const { spectacles, filteredList } = this.props;
 
         this.setState({
             search: value,
-            spectacles: filteredList,
+            spectacles: spectacles,
         });
+
+        filteredList(value);
     };
 
     render() {
+        const { spectacles } = this.state;
         return (
             <>
                 <Container>
@@ -48,7 +39,7 @@ class List extends Component {
                         />
                     </div>
                     <div>
-                        {this.state.spectacles.map((spectacle) => (
+                        {spectacles.map((spectacle) => (
                             <ListElement
                                 key={spectacle.id}
                                 title={spectacle.title}
@@ -65,4 +56,10 @@ class List extends Component {
     }
 }
 
-export default List;
+const mapStateToProps = ({ spectacles }) => ({ spectacles });
+
+const mapDispatchToProps = (dispatch) => ({
+    filteredList: (text) => dispatch(filteredListAction(text)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

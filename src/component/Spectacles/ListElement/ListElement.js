@@ -12,7 +12,7 @@ class ListElement extends Component {
                 className={styles.spectacles}
                 activeClassName={styles.active}
             >
-                <img className={styles.listImg} src={image} alt={title} />
+                <img className={styles.img} src={image} alt={title} />
                 <div className={styles.wrapper}>
                     <h2 className={styles.title}>{title}</h2>
                     <p className={styles.director}>{director}</p>
