@@ -1,19 +1,21 @@
+@import "../../styles/global.scss";
+
 .button {
     outline: none;
     font-size: 20px;
     text-transform: uppercase;
     color: white;
-    background-color: #ff6b6b;
+    background-color: $color-pink;
     padding: 10px 20px;
-    border: #ff6b6b 1px solid;
+    border: $color-pink 1px solid;
     border-radius: 50px;
     width: 150px;
     margin-top: 10px;
 
     &:hover {
         cursor: pointer;
-        background-color: #942727;
-        border-color: #942727;
+        background-color: $color-red;
+        border-color: $color-red;
     }
 }
 

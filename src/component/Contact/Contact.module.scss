@@ -1,10 +1,12 @@
+@import "../../styles/global.scss";
+
 .contactWrapper {
     height: 85vh;
 }
 
 .title {
     padding: 75px 0 0 25px;
-    color: black;
+    color: $color-grey;
     text-transform: uppercase;
     font-size: 42px;
     font-weight: bold;
@@ -27,19 +29,21 @@
     text-align: right;
 
     p {
-        color: black;
+        color: $color-grey;
         font-size: 22px;
         margin: 5px 0;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .contactWrapper {
         height: auto;
     }
+}
 
+@media (max-width: 900px) {
     .title {
-        padding: 50px 0 0 50px;
+        padding: 50px 0 0 25px;
         font-size: 38px;
     }
 
@@ -65,7 +69,7 @@
 
 @media (max-width: 650px) {
     .title {
-        padding: 35px 0 0 50px;
+        padding: 35px 0 0 25px;
         font-size: 32px;
     }
 

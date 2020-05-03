@@ -1,9 +1,11 @@
+@import "../../styles/global.scss";
+
 .slick-next {
     right: 30px;
 
     &::before {
         font-size: 40px;
-        color: #ff6b6b;
+        color: $color-light;
     }
 }
 
@@ -13,7 +15,7 @@
 
     &::before {
         font-size: 40px;
-        color: #ff6b6b;
+        color: $color-light;
     }
 }
 

@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./ListElement.module.scss";
+import styles from "./List.module.scss";
 import Amount from "../Amount/Amount";
 
-class ListElement extends Component {
+class List extends Component {
     render() {
         const { title, description, director, image, price } = this.props;
         return (
             <NavLink
-                to={`/spectacle/${title}`}
+                to={`/spectacles/${title}`}
                 className={styles.spectacles}
                 activeClassName={styles.active}
             >
@@ -18,7 +18,8 @@ class ListElement extends Component {
                     <p className={styles.director}>{director}</p>
                     <p className={styles.description}>{description}</p>
                     <div className={styles.amountActive}>
-                        <Amount price={price} />
+                        <p className={styles.price}>Cena: {price}$</p>
+                        <Amount />
                     </div>
                 </div>
             </NavLink>
@@ -26,4 +27,4 @@ class ListElement extends Component {
     }
 }
 
-export default ListElement;
+export default List;

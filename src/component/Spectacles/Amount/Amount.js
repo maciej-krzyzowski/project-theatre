@@ -23,10 +23,8 @@ class Amount extends Component {
 
     render() {
         const { amount, minAmount, maxAmount } = this.state;
-        const { price } = this.props;
         return (
             <>
-                <p className={styles.price}>Cena: {price * amount}$</p>
                 <div className={styles.wrapper}>
                     <button
                         disabled={amount > minAmount ? false : true}

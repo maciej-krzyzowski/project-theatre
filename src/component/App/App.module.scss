@@ -1,4 +1,7 @@
+@import "../../styles/global.scss";
+
 .wrapper {
-    color: white;
+    color: $color-white;
     font-family: "Roboto", sans-serif;
+    min-width: 100vh;
 }

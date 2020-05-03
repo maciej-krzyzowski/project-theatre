@@ -1,3 +1,5 @@
+@import "../../../styles/global.scss";
+
 .form {
     margin: 30px 0 0 50px;
     display: flex;
@@ -7,7 +9,7 @@
 
 .title {
     font-size: 26px;
-    color: #ff6b6b;
+    color: $color-pink;
 }
 
 .input {

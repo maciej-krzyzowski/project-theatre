@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .carusel {
     height: 85vh;
 }
@@ -30,11 +32,14 @@
 .title {
     font-size: 100px;
     &::first-letter {
-        color: #ff6b6b;
+        color: $color-pink;
     }
 }
 
 @media (max-width: 1024px) {
+    .carusel {
+        height: 80vh;
+    }
     .title {
         font-size: 80px;
     }

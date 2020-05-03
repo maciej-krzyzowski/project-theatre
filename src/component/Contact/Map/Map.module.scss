@@ -1,3 +1,5 @@
+@import "../../../styles/global.scss";
+
 .map {
     height: 60vh;
     flex: 1;
@@ -5,7 +7,7 @@
 }
 
 .marker {
-    color: black;
+    color: $color-grey;
     font-size: 20px;
     text-align: center;
     display: flex;
@@ -14,7 +16,7 @@
 
     :last-child {
         display: inline;
-        color: red;
+        color: $color-pink;
     }
 }
 

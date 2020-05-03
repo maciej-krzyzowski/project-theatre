@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import styles from "./List.module.scss";
-import ListElement from "./ListElement/ListElement";
-import Container from "../Container/Container";
+import styles from "./Spectacles.module.scss";
+import ListElement from "./List/List";
 import { filteredList as filteredListAction } from "../../actions/index";
 
-class List extends Component {
+class Spectacles extends Component {
     state = {
         spectacles: this.props.spectacles,
         search: "",
@@ -27,30 +26,28 @@ class List extends Component {
         const { spectacles } = this.state;
         return (
             <>
-                <Container>
-                    <div className={styles.wrapper}>
-                        <h1 className={styles.title}>SPECTACLES</h1>
-                        <input
-                            className={styles.search}
-                            type="search"
-                            placeholder="Search..."
-                            value={this.state.search}
-                            onChange={this.handleChange}
+                <div className={styles.wrapper}>
+                    <h1 className={styles.title}>SPECTACLES</h1>
+                    <input
+                        className={styles.search}
+                        type="search"
+                        placeholder="Search..."
+                        value={this.state.search}
+                        onChange={this.handleChange}
+                    />
+                </div>
+                <div>
+                    {spectacles.map((spectacle) => (
+                        <ListElement
+                            key={spectacle.id}
+                            title={spectacle.title}
+                            description={spectacle.description}
+                            image={spectacle.image}
+                            director={spectacle.director}
+                            price={spectacle.price}
                         />
-                    </div>
-                    <div>
-                        {spectacles.map((spectacle) => (
-                            <ListElement
-                                key={spectacle.id}
-                                title={spectacle.title}
-                                description={spectacle.description}
-                                image={spectacle.image}
-                                director={spectacle.director}
-                                price={spectacle.price}
-                            />
-                        ))}
-                    </div>
-                </Container>
+                    ))}
+                </div>
             </>
         );
     }
@@ -62,4 +59,4 @@ const mapDispatchToProps = (dispatch) => ({
     filteredList: (text) => dispatch(filteredListAction(text)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps, mapDispatchToProps)(Spectacles);

@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./Navigation.module.scss";
 import Container from "../Container/Container";
 import HamburgerMenu from "react-hamburger-menu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 class Navigation extends React.Component {
     state = { open: false };
@@ -10,6 +12,12 @@ class Navigation extends React.Component {
     handleClick = () => {
         this.setState({
             open: !this.state.open,
+        });
+    };
+
+    handleClose = () => {
+        this.setState({
+            open: false,
         });
     };
 
@@ -24,6 +32,7 @@ class Navigation extends React.Component {
                         </Link>
                         {window.innerWidth <= 1024 ? (
                             <HamburgerMenu
+                                className={styles.hamburger}
                                 isOpen={this.state.open}
                                 menuClicked={this.handleClick}
                                 width={30}
@@ -35,20 +44,45 @@ class Navigation extends React.Component {
                                 animationDuration={0.5}
                             />
                         ) : null}
-                        <ul className={`${styles.list} ${this.state.open && styles.listActvie}`}>
+                        <ul
+                            onClick={window.innerWidth <= 1024 ? this.handleClose : null}
+                            className={`${styles.list} ${this.state.open && styles.listActvie}`}
+                        >
                             <li className={styles.element}>
-                                <NavLink exact activeClassName={styles.active} to="/">
+                                <NavLink
+                                    className={styles.link}
+                                    exact
+                                    activeClassName={styles.active}
+                                    to="/"
+                                >
                                     Home
                                 </NavLink>
                             </li>
                             <li className={styles.element}>
-                                <NavLink activeClassName={styles.active} to="/spectacles">
+                                <NavLink
+                                    className={styles.link}
+                                    activeClassName={styles.active}
+                                    to="/spectacles"
+                                >
                                     Spectacles
                                 </NavLink>
                             </li>
                             <li className={styles.element}>
-                                <NavLink activeClassName={styles.active} to="/contact">
+                                <NavLink
+                                    className={styles.link}
+                                    activeClassName={styles.active}
+                                    to="/contact"
+                                >
                                     Contact
+                                </NavLink>
+                            </li>
+                            <li className={styles.element}>
+                                <NavLink
+                                    className={styles.link}
+                                    activeClassName={styles.active}
+                                    to="/cart"
+                                >
+                                    <FontAwesomeIcon icon={faShoppingCart} />
                                 </NavLink>
                             </li>
                         </ul>

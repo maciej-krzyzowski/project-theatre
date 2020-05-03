@@ -1,13 +1,15 @@
+@import "../../../styles/global.scss";
+
 .spectacles {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 1px solid gray;
+    border: 1px solid $color-light;
     border-radius: 8px;
     box-shadow: -5px 5px 15px 0px rgba(0, 0, 0, 0.25);
     margin: 40px 0;
     padding: 35px;
-    color: black;
+    color: $color-grey;
 }
 
 .img {
@@ -33,7 +35,7 @@
     margin-bottom: 20px;
     font-size: 14px;
     font-weight: bold;
-    color: #ff6b6b;
+    color: $color-pink;
 }
 
 .description {
@@ -52,6 +54,11 @@
     align-items: center;
 }
 
+.price {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+}
 .active {
     &:hover {
         cursor: default;

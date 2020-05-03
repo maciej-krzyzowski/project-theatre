@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .wrapper {
     display: flex;
     flex-direction: row;
@@ -8,7 +10,7 @@
 .title {
     display: inline-block;
     padding: 75px 0 0 25px;
-    color: black;
+    color: $color-grey;
     text-transform: uppercase;
     font-size: 42px;
     font-weight: bold;
@@ -18,9 +20,20 @@
 .search {
     font-size: 18px;
     padding: 10px 10px;
-    border: 1px solid gray;
+    border: 1px solid $color-light;
     border-radius: 5px;
     outline: none;
+}
+
+@media (max-width: 1024px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search {
+        margin: 10px 0 0 auto;
+    }
 }
 
 @media (max-width: 900px) {
