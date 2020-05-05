@@ -1,16 +1,157 @@
 @import "../../styles/global.scss";
 
-.wrapper {
+.cart {
     display: flex;
     min-height: 85vh;
+    flex-direction: column;
 }
 
 .title {
     display: inline-block;
-    padding: 75px 0 0 25px;
+    padding: 75px 0 25px 25px;
     color: $color-grey;
     text-transform: uppercase;
     font-size: 42px;
     font-weight: bold;
     text-align: left;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid $color-light;
+    margin: 0;
+    padding: 35px;
+    color: $color-grey;
+    position: relative;
+}
+
+.img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 25px;
+}
+
+.spectaclesTitle {
+    font-size: 35px;
+}
+
+.price {
+    margin-left: auto;
+    font-size: 26px;
+}
+
+.remove {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    font-size: 16px;
+    background: none;
+    border-radius: 8px;
+    border: 1px solid $color-light;
+    color: $color-grey;
+    outline: none;
+}
+
+.empty {
+    color: $color-grey;
+    font: 26px;
+    text-align: center;
+    margin: 50px 0 25px 0;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    border-top: 1px solid $color-light;
+    padding-top: 25px;
+    margin: 25px 0 75px auto;
+    color: $color-grey;
+    font-size: 26px;
+}
+
+.order {
+    margin: 10px 0;
+}
+
+@media (max-width: 1024px) {
+    .cart {
+        min-height: 80vh;
+    }
+}
+
+@media (max-width: 900px) {
+    .title {
+        padding: 50px 0 0 25px;
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 800px) {
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .wrapper {
+        margin: 15px 0;
+        padding: 25px 0;
+    }
+
+    .spectaclesTitle {
+        font-size: 26px;
+    }
+
+    .img {
+        margin: 0 10px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    .remove {
+        top: 10px;
+        right: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+    .title {
+        padding: 35px 0 0 25px;
+        font-size: 32px;
+    }
+
+    .spectaclesTitle {
+        font-size: 18px;
+    }
+
+    .img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .spectaclesTitle {
+        font-size: 16px;
+    }
+
+    .img {
+        height: 55px;
+        width: 55px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
 }

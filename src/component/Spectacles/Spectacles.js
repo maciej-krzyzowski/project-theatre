@@ -25,7 +25,7 @@ class Spectacles extends Component {
     render() {
         const { spectacles } = this.state;
         return (
-            <>
+            <div className={styles.spectacles}>
                 <div className={styles.wrapper}>
                     <h1 className={styles.title}>SPECTACLES</h1>
                     <input
@@ -48,7 +48,7 @@ class Spectacles extends Component {
                         />
                     ))}
                 </div>
-            </>
+            </div>
         );
     }
 }

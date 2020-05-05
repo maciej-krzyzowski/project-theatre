@@ -41,11 +41,7 @@ class Home extends Component {
             </div>
         ));
 
-        return (
-            <div className={styles.carusel}>
-                <Slider {...carusel}>{caruselElement}</Slider>
-            </div>
-        );
+        return <Slider {...carusel}>{caruselElement}</Slider>;
     }
 }
 

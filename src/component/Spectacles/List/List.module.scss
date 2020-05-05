@@ -1,5 +1,23 @@
 @import "../../../styles/global.scss";
 
+.active {
+    &:hover {
+        cursor: default;
+    }
+
+    .wrapper {
+        margin: 15px 0 15px 15px;
+    }
+
+    .descriptionActive {
+        display: flex;
+    }
+
+    .description {
+        display: block;
+    }
+}
+
 .spectacles {
     display: flex;
     flex-direction: row;
@@ -47,11 +65,12 @@
     overflow: hidden;
 }
 
-.amountActive {
+.descriptionActive {
     display: none;
     align-self: flex-end;
     flex-direction: column;
     align-items: center;
+    padding: 0 15px;
 }
 
 .price {
@@ -59,28 +78,11 @@
     margin-top: 20px;
     font-size: 20px;
 }
-.active {
-    &:hover {
-        cursor: default;
-    }
-
-    .amountActive {
-        display: flex;
-    }
-
-    .description {
-        display: block;
-    }
-}
 
 @media (max-width: 800px) {
-    .listImg {
+    .img {
         height: 125px;
-        width: 125px;
-    }
-
-    .wrapper {
-        margin-left: 25px;
+        min-width: 125px;
     }
 
     .title {
@@ -104,18 +106,9 @@
         margin: 15px 0;
     }
 
-    .listImg {
+    .img {
         height: 100px;
-        width: 100px;
-    }
-
-    .wrapper {
-        margin-left: 15px;
-    }
-
-    .title {
-        font-size: 18px;
-        font-weight: bold;
+        min-width: 100px;
     }
 
     .director {
@@ -124,6 +117,13 @@
     }
 
     .description {
-        font-size: 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .img {
+        height: 75px;
+        min-width: 75px;
     }
 }

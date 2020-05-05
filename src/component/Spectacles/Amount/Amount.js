@@ -1,51 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./Amount.module.scss";
-import Button from "../../Button/Button";
 
-class Amount extends Component {
-    state = {
-        amount: 1,
-        maxAmount: 9,
-        minAmount: 1,
-    };
-
-    handleSubtract = () => {
-        this.setState({
-            amount: this.state.amount * 1 - 1,
-        });
-    };
-
-    handleAdd = () => {
-        this.setState({
-            amount: this.state.amount * 1 + 1,
-        });
-    };
-
-    render() {
-        const { amount, minAmount, maxAmount } = this.state;
-        return (
-            <>
-                <div className={styles.wrapper}>
-                    <button
-                        disabled={amount > minAmount ? false : true}
-                        className={styles.button}
-                        onClick={this.handleSubtract}
-                    >
-                        -
-                    </button>
-                    <p className={styles.amount}>{amount}</p>
-                    <button
-                        disabled={amount < maxAmount ? false : true}
-                        className={styles.button}
-                        onClick={this.handleAdd}
-                    >
-                        +
-                    </button>
-                </div>
-                <Button>KUP BILET!</Button>
-            </>
-        );
-    }
-}
+const Amount = ({ amount, min, max, add, subtract }) => {
+    return (
+        <>
+            <div className={styles.wrapper}>
+                <button
+                    disabled={amount > min ? false : true}
+                    className={styles.button}
+                    onClick={subtract}
+                >
+                    -
+                </button>
+                <p className={styles.amount}>{amount}</p>
+                <button
+                    disabled={amount < max ? false : true}
+                    className={styles.button}
+                    onClick={add}
+                >
+                    +
+                </button>
+            </div>
+            {amount === max ? <p className={styles.warning}>Mozesz kupić max 9 szt.!</p> : null}
+        </>
+    );
+};
 
 export default Amount;

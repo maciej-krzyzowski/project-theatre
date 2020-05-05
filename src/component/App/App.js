@@ -20,12 +20,12 @@ const App = () => {
                     atLeave={{ opacity: 0 }}
                     atActive={{ opacity: 1 }}
                 >
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/theatre" component={Home} />
                     <Container>
-                        <Route exact path="/spectacles/" component={Spectacles} />
-                        <Route path="/spectacles/:id" component={Spectacles} />
-                        <Route path="/contact" component={Contact} />
-                        <Route path="/cart" component={Cart} />
+                        <Route exact path="/theatre/spectacles/" component={Spectacles} />
+                        <Route path="/theatre/spectacles/:id" component={Spectacles} />
+                        <Route path="/theatre/contact" component={Contact} />
+                        <Route path="/theatre/cart" component={Cart} />
                     </Container>
                 </AnimatedSwitch>
             </Router>

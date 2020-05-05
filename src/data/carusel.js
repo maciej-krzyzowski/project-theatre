@@ -1,5 +1,5 @@
 export const carusel = {
-    dots: window.innerWidth <= 1024 ? false : true,
+    dots: false,
     arrows: window.innerWidth <= 1024 ? false : true,
     infinite: true,
     autoplay: true,

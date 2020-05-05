@@ -39,7 +39,7 @@
 .element {
     text-transform: uppercase;
     list-style-type: none;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 a {
@@ -49,8 +49,14 @@ a {
 .link {
     color: $color-white;
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 0;
     border-radius: 5px;
+
+    span {
+        font-size: 18px;
+        position: relative;
+        bottom: -5px;
+    }
 }
 
 .active {

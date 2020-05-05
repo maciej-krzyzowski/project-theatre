@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 import styles from "./Navigation.module.scss";
 import Container from "../Container/Container";
 import HamburgerMenu from "react-hamburger-menu";
@@ -22,11 +23,12 @@ class Navigation extends React.Component {
     };
 
     render() {
+        const { cart } = this.props;
         return (
             <div className={styles.header}>
                 <Container>
                     <div className={styles.wrapper}>
-                        <Link to="/" className={styles.logo}>
+                        <Link to="/theatre/" className={styles.logo}>
                             <span className={styles.decoration}>t</span>heatre
                             <span className={styles.decoration}>.</span>
                         </Link>
@@ -53,7 +55,7 @@ class Navigation extends React.Component {
                                     className={styles.link}
                                     exact
                                     activeClassName={styles.active}
-                                    to="/"
+                                    to="/theatre/"
                                 >
                                     Home
                                 </NavLink>
@@ -62,7 +64,7 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to="/spectacles"
+                                    to="/theatre/spectacles"
                                 >
                                     Spectacles
                                 </NavLink>
@@ -71,7 +73,7 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to="/contact"
+                                    to="/theatre/contact"
                                 >
                                     Contact
                                 </NavLink>
@@ -80,9 +82,10 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to="/cart"
+                                    to="/theatre/cart"
                                 >
-                                    <FontAwesomeIcon icon={faShoppingCart} />
+                                    <FontAwesomeIcon icon={faShoppingCart} />{" "}
+                                    <span>{cart.length}</span>
                                 </NavLink>
                             </li>
                         </ul>
@@ -93,4 +96,6 @@ class Navigation extends React.Component {
     }
 }
 
-export default Navigation;
+const mapStateToProps = ({ cart }) => ({ cart });
+
+export default connect(mapStateToProps)(Navigation);
