@@ -44,15 +44,14 @@
     font-size: 26px;
 }
 
-.remove {
+.buttonRemove {
     position: absolute;
     top: 25px;
     right: 15px;
     font-size: 16px;
-    background: none;
-    border-radius: 8px;
-    border: 1px solid $color-light;
     color: $color-grey;
+    background: none;
+    border: none;
     outline: none;
 }
 
@@ -124,7 +123,6 @@
 @media (max-width: 500px) {
     .title {
         padding: 35px 0 0 25px;
-        font-size: 32px;
     }
 
     .spectaclesTitle {

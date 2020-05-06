@@ -27,11 +27,34 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 cart: [...state.cart.filter((item) => item.id !== action.payload.id)],
             };
+
         case "CLEARE_CART":
             return {
                 ...state,
                 cart: [],
             };
+
+        case "REMOVE_SPECTACLE":
+            return {
+                ...state,
+                spectacles: [...state.spectacles.filter((item) => item.id !== action.payload.id)],
+            };
+
+        case "ADD_SPECTACLE":
+            return {
+                ...state,
+                spectacles: [...state.spectacles, action.payload],
+            };
+
+        case "EDIT_SPECTACLE":
+            const index = state.spectacles.findIndex((element) => element.id === action.payload.id);
+            const editedArray = [...state.spectacles];
+            editedArray[index] = action.payload;
+            return {
+                ...state,
+                spectacles: [...editedArray],
+            };
+
         default:
             return state;
     }

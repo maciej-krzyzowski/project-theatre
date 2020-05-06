@@ -5,12 +5,14 @@ import { addItemToCart as addItemToCartAction } from "../../../actions/index";
 import { NavLink } from "react-router-dom";
 import Amount from "../Amount/Amount";
 import Button from "../../Button/Button";
+import Modal from "../../Modal/Modal";
 
 class List extends Component {
     state = {
         amount: 1,
         maxAmount: 9,
         minAmount: 1,
+        clicked: false,
     };
 
     handleSubtract = () => {
@@ -25,9 +27,23 @@ class List extends Component {
         });
     };
 
+    handleAddItemToCart = (title, image, price, amount) => {
+        this.props.addItemToCart(title, image, price, amount);
+        this.setState({
+            clicked: true,
+        });
+    };
+
+    handleClose = () => {
+        this.setState({
+            clicked: !this.state.clicked,
+        });
+    };
+
     render() {
-        const { title, description, director, image, price, addItemToCart } = this.props;
-        const { amount, minAmount, maxAmount } = this.state;
+        const { title, description, director, image, price } = this.props;
+        const { amount, minAmount, maxAmount, clicked } = this.state;
+        const { handleAddItemToCart } = this;
 
         return (
             <NavLink
@@ -49,16 +65,14 @@ class List extends Component {
                             add={this.handleAdd}
                             subtract={this.handleSubtract}
                         />
-                        <Button
-                            onClick={() => {
-                                addItemToCart(title, image, price, amount);
-                                alert("Dodano do koszyka!");
-                            }}
-                        >
+                        <Button onClick={() => handleAddItemToCart(title, image, price, amount)}>
                             KUP BILET!
                         </Button>
                     </div>
                 </div>
+                {clicked ? (
+                    <Modal handleClose={this.handleClose} text="Dodano do koszyka!" icon="true" />
+                ) : null}
             </NavLink>
         );
     }

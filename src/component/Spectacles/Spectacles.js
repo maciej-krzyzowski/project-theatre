@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styles from "./Spectacles.module.scss";
-import ListElement from "./List/List";
+import List from "./List/List";
 import { filteredList as filteredListAction } from "../../actions/index";
 
 class Spectacles extends Component {
@@ -38,7 +38,7 @@ class Spectacles extends Component {
                 </div>
                 <div>
                     {spectacles.map((spectacle) => (
-                        <ListElement
+                        <List
                             key={spectacle.id}
                             title={spectacle.title}
                             description={spectacle.description}

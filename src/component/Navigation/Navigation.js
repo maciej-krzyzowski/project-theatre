@@ -5,7 +5,7 @@ import styles from "./Navigation.module.scss";
 import Container from "../Container/Container";
 import HamburgerMenu from "react-hamburger-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faUserCog } from "@fortawesome/free-solid-svg-icons";
 
 class Navigation extends React.Component {
     state = { open: false };
@@ -86,6 +86,15 @@ class Navigation extends React.Component {
                                 >
                                     <FontAwesomeIcon icon={faShoppingCart} />{" "}
                                     <span>{cart.length}</span>
+                                </NavLink>
+                            </li>
+                            <li className={styles.element}>
+                                <NavLink
+                                    className={styles.link}
+                                    activeClassName={styles.active}
+                                    to="/theatre/log"
+                                >
+                                    <FontAwesomeIcon icon={faUserCog} />
                                 </NavLink>
                             </li>
                         </ul>

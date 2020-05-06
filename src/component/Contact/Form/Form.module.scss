@@ -32,6 +32,12 @@
     border-radius: 10px;
 }
 
+.warning {
+    color: $color-red;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
 @media (max-width: 900px) {
     .form {
         margin: 0;

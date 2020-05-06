@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styles from "./Cart.module.scss";
 import Button from "../Button/Button";
-import Modal from "./Modal/Modal";
+import Modal from "../Modal/Modal";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
     removeItemFromCart as removeItemFromCartAction,
     clearCart as clearCartAction,
@@ -70,12 +72,11 @@ class Cart extends Component {
                                 <p className={styles.price}>
                                     {element.price} PLN x {element.amount}
                                 </p>
-                                <button
-                                    className={styles.remove}
+                                <ButtonIcon
+                                    style={styles.buttonRemove}
                                     onClick={() => removeItemFromCart(element.id)}
-                                >
-                                    X
-                                </button>
+                                    icon={faTimes}
+                                />
                             </div>
                         ))
                     ) : (
@@ -86,7 +87,9 @@ class Cart extends Component {
                         <Button onClick={this.handleOrder}>KUPUJE</Button>
                     </div>
                 </div>
-                {clicked ? <Modal handleClose={this.handleClose} /> : null}
+                {clicked ? (
+                    <Modal handleClose={this.handleClose} text="Potwierdzenie zakupu" icon />
+                ) : null}
             </>
         );
     }
