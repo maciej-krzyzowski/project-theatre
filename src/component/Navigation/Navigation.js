@@ -66,7 +66,7 @@ class Navigation extends React.Component {
                                     activeClassName={styles.active}
                                     to="/theatre/spectacles"
                                 >
-                                    Spectacles
+                                    Spektakle
                                 </NavLink>
                             </li>
                             <li className={styles.element}>
@@ -75,7 +75,7 @@ class Navigation extends React.Component {
                                     activeClassName={styles.active}
                                     to="/theatre/contact"
                                 >
-                                    Contact
+                                    Kontakt
                                 </NavLink>
                             </li>
                             <li className={styles.element}>

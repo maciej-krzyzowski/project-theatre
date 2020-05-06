@@ -27,7 +27,7 @@ class Spectacles extends Component {
         return (
             <div className={styles.spectacles}>
                 <div className={styles.wrapper}>
-                    <h1 className={styles.title}>SPECTACLES</h1>
+                    <h1 className={styles.title}>Spektakle</h1>
                     <input
                         className={styles.search}
                         type="search"

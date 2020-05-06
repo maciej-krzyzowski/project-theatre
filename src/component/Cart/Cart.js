@@ -59,7 +59,7 @@ class Cart extends Component {
         return (
             <>
                 <div className={styles.cart}>
-                    <h1 className={styles.title}>Cart</h1>
+                    <h1 className={styles.title}>Koszyk</h1>
                     {cart.length ? (
                         cart.map((element) => (
                             <div className={styles.wrapper} key={element.id}>

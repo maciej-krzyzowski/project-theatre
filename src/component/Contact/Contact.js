@@ -6,7 +6,7 @@ import Form from "./Form/Form";
 const Contact = () => {
     return (
         <div className={styles.contactWrapper}>
-            <h1 className={styles.title}>Contact</h1>
+            <h1 className={styles.title}>Kontakt</h1>
             <div className={styles.wrapper}>
                 <Map />
                 <div className={styles.contact}>
