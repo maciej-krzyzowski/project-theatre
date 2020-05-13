@@ -16,15 +16,18 @@ class Form extends Component {
         });
     };
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
         this.setState({
             fullName: "",
             email: "",
             text: "",
         });
+        e.preventDefault();
+        console.log(this.state);
     };
 
     render() {
+        const { fullName, email, text } = this.state;
         return (
             <form className={styles.form}>
                 <h2 className={styles.title}>Napisz do nas!</h2>
@@ -34,19 +37,22 @@ class Form extends Component {
                     name="fullName"
                     type="text"
                     placeholder="Imię i nazwisko"
-                ></input>
+                    value={fullName}
+                />
                 <input
                     onChange={this.handleChange}
                     className={styles.input}
                     name="email"
                     type="text"
                     placeholder="Email"
-                ></input>
+                    value={email}
+                />
                 <textarea
                     onChange={this.handleChange}
                     className={styles.textarea}
                     name="text"
                     placeholder="Wpisz wiadmość..."
+                    value={text}
                 />
                 <Button onClick={this.handleSubmit}>Wyślij</Button>
             </form>
