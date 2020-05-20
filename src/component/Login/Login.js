@@ -36,6 +36,13 @@ class Log extends Component {
         }
     };
 
+    handleEnterPress = (e) => {
+        console.log(e.key);
+        if (e.key === "Enter") {
+            this.handleLogIn();
+        }
+    };
+
     render() {
         const { text, password, showWarning } = this.state;
         const { isLogged } = this.props;
@@ -46,7 +53,7 @@ class Log extends Component {
             <div className={styles.log}>
                 <h1 className={styles.title}>Zaloguj się do Panelu Administracyjnego</h1>
                 <div className={styles.wrapper}>
-                    <form className={styles.form}>
+                    <form className={styles.form} onKeyPress={(e) => this.handleEnterPress(e)}>
                         <h2 className={styles.subtitle}>Podaj dane:</h2>
                         <input
                             onChange={this.handleChange}
@@ -81,7 +88,11 @@ class Log extends Component {
                     </form>
                 </div>
                 {showWarning && (
-                    <Modal handleClose={this.handleTggleShowWarning} text="Podałeś złe hasło" />
+                    <Modal
+                        handleClose={this.handleTggleShowWarning}
+                        text="Podałeś złe dane."
+                        witchoutIcon
+                    />
                 )}
             </div>
         );
