@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import styles from "./Log.module.scss";
+import styles from "./Login.module.scss";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { login as loginAction } from "../../actions/index";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 
@@ -8,8 +10,7 @@ class Log extends Component {
     state = {
         text: "",
         password: "",
-        isLog: false,
-        isActive: false,
+        showWarning: false,
     };
 
     handleChange = (e) => {
@@ -19,29 +20,27 @@ class Log extends Component {
         });
     };
 
-    handleLogIn = (e) => {
-        e.preventDefault();
-        const { text, password } = this.state;
-        if (text === "admin" && password === "admin123") {
-            this.setState({
-                isLog: true,
-            });
-        } else {
-            this.setState({
-                isActive: true,
-            });
-        }
-    };
-
-    handleClose = () => {
+    handleTggleShowWarning = () => {
         this.setState({
-            isActive: false,
+            showWarning: !this.state.showWarning,
         });
     };
 
+    handleLogIn = () => {
+        const { text, password } = this.state;
+        const { login } = this.props;
+        if (text === "admin" && password === "admin123") {
+            login();
+        } else {
+            this.handleTggleShowWarning();
+        }
+    };
+
+
     render() {
-        const { text, password, isLog, isActive } = this.state;
-        if (isLog) {
+        const { text, password, showWarning } = this.state;
+        const { isLogged } = this.props;
+        if (isLogged) {
             return <Redirect to="/theatre/admin" />;
         }
         return (
@@ -57,11 +56,11 @@ class Log extends Component {
                             placeholder="Identyfikator"
                             value={text}
                         />
-                        {0 < text.length && text.length < 5 ? (
+                        {0 !== text.length && text.length < 5 && (
                             <p className={styles.warning}>
                                 Identyfikator musi zawierac min 5 znaków.
                             </p>
-                        ) : null}
+                        )}
                         <input
                             onChange={this.handleChange}
                             className={styles.input}
@@ -69,10 +68,10 @@ class Log extends Component {
                             placeholder="Hasło"
                             value={password}
                         />
-                        {0 < password.length && password.length < 8 ? (
+                        {0 !== password.length && password.length < 8 && (
                             <p className={styles.warning}>Hasło musi zawierac min 8 znaków.</p>
-                        ) : null}
-                        <Button onClick={(e) => this.handleLogIn(e)}>Zaloguj</Button>
+                        )}
+                        <Button onClick={this.handleLogIn}>Zaloguj</Button>
                         <p className={styles.data}>
                             Wpisz poniższe dane, żeby sie zalogować się do panelu administracyjnego:
                             <br />
@@ -82,15 +81,18 @@ class Log extends Component {
                         </p>
                     </form>
                 </div>
-                {isActive ? (
-                    <Modal
-                        handleClose={this.handleClose}
-                        text="Podałeś złe hasło, spróbuj jeszcze raz!"
-                    />
-                ) : null}
+                {showWarning && (
+                    <Modal handleClose={this.handleTggleShowWarning} text="Podałeś złe hasło" />
+                )}
             </div>
         );
     }
 }
 
-export default Log;
+const mapStateToProps = ({ isLogged }) => ({ isLogged });
+
+const mapDispatchToProps = (dispatch) => ({
+    login: () => dispatch(loginAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Log);

@@ -10,9 +10,7 @@ import Modal from "../../Modal/Modal";
 class List extends Component {
     state = {
         amount: 1,
-        maxAmount: 9,
-        minAmount: 1,
-        clicked: false,
+        isModalOpen: false,
     };
 
     handleSubtract = () => {
@@ -30,20 +28,19 @@ class List extends Component {
     handleAddItemToCart = (title, image, price, amount) => {
         this.props.addItemToCart(title, image, price, amount);
         this.setState({
-            clicked: true,
+            isModalOpen: true,
         });
     };
 
     handleClose = () => {
         this.setState({
-            clicked: !this.state.clicked,
+            isModalOpen: false,
         });
     };
 
     render() {
         const { title, description, director, image, price } = this.props;
-        const { amount, minAmount, maxAmount, clicked } = this.state;
-        const { handleAddItemToCart } = this;
+        const { amount, isModalOpen } = this.state;
 
         return (
             <NavLink
@@ -60,19 +57,17 @@ class List extends Component {
                         <p className={styles.price}>Cena: {price}PLN</p>
                         <Amount
                             amount={amount}
-                            min={minAmount}
-                            max={maxAmount}
                             add={this.handleAdd}
                             subtract={this.handleSubtract}
                         />
-                        <Button onClick={() => handleAddItemToCart(title, image, price, amount)}>
+                        <Button
+                            onClick={() => this.handleAddItemToCart(title, image, price, amount)}
+                        >
                             KUP BILET!
                         </Button>
                     </div>
                 </div>
-                {clicked ? (
-                    <Modal handleClose={this.handleClose} text="Dodano do koszyka!" icon="true" />
-                ) : null}
+                {isModalOpen && <Modal handleClose={this.handleClose} text="Dodano do koszyka!" />}
             </NavLink>
         );
     }

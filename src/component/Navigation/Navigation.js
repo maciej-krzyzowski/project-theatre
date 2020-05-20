@@ -1,29 +1,28 @@
 import React from "react";
+import styles from "./Navigation.module.scss";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import styles from "./Navigation.module.scss";
+import { login as loginAction } from "../../actions/index";
 import Container from "../Container/Container";
 import HamburgerMenu from "react-hamburger-menu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faUserCog } from "@fortawesome/free-solid-svg-icons";
 
 class Navigation extends React.Component {
-    state = { open: false };
+    state = { isOpen: false };
 
     handleClick = () => {
         this.setState({
-            open: !this.state.open,
+            isOpen: !this.state.isOpen,
         });
     };
 
     handleClose = () => {
         this.setState({
-            open: false,
+            isOpen: false,
         });
     };
 
     render() {
-        const { cart } = this.props;
+        const { cart, isLogged } = this.props;
         return (
             <div className={styles.header}>
                 <Container>
@@ -32,10 +31,10 @@ class Navigation extends React.Component {
                             <span className={styles.decoration}>t</span>heatre
                             <span className={styles.decoration}>.</span>
                         </Link>
-                        {window.innerWidth <= 1024 ? (
+                        {window.innerWidth <= 1024 && (
                             <HamburgerMenu
                                 className={styles.hamburger}
-                                isOpen={this.state.open}
+                                isOpen={this.state.isOpen}
                                 menuClicked={this.handleClick}
                                 width={30}
                                 height={20}
@@ -45,10 +44,10 @@ class Navigation extends React.Component {
                                 borderRadius={1}
                                 animationDuration={0.5}
                             />
-                        ) : null}
+                        )}
                         <ul
                             onClick={window.innerWidth <= 1024 ? this.handleClose : null}
-                            className={`${styles.list} ${this.state.open && styles.listActvie}`}
+                            className={`${styles.list} ${this.state.isOpen && styles.listActvie}`}
                         >
                             <li className={styles.element}>
                                 <NavLink
@@ -84,7 +83,7 @@ class Navigation extends React.Component {
                                     activeClassName={styles.active}
                                     to="/theatre/cart"
                                 >
-                                    <FontAwesomeIcon icon={faShoppingCart} />{" "}
+                                    <i className="fas fa-shopping-cart"></i>
                                     <span>{cart.length}</span>
                                 </NavLink>
                             </li>
@@ -92,11 +91,23 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to="/theatre/log"
+                                    to={isLogged ? "/theatre/admin" : "/theatre/login"}
                                 >
-                                    <FontAwesomeIcon icon={faUserCog} />
+                                    <i className="fas fa-users-cog"></i>
                                 </NavLink>
                             </li>
+                            {isLogged && (
+                                <li className={styles.element}>
+                                    <NavLink
+                                        className={styles.link}
+                                        activeClassName={styles.active}
+                                        to="/theatre/login"
+                                        onClick={this.props.login}
+                                    >
+                                        <i className="fas fa-sign-out-alt"></i>
+                                    </NavLink>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </Container>
@@ -105,6 +116,10 @@ class Navigation extends React.Component {
     }
 }
 
-const mapStateToProps = ({ cart }) => ({ cart });
+const mapStateToProps = ({ cart, isLogged }) => ({ cart, isLogged });
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = (dispatch) => ({
+    login: () => dispatch(loginAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

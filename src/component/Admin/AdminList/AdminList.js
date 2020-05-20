@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "./AdminList.module.scss";
-import { faEdit, faTimes } from "@fortawesome/free-solid-svg-icons";
 import ButtonIcon from "../../ButtonIcon/ButtonIcon";
 import AdminModal from "../AdminModal/AdminModal";
 import { removeSpectacle as removeSpectacleAction } from "../../../actions/index";
@@ -31,16 +30,12 @@ class AdminList extends Component {
                 <div key={id} className={styles.spectacles}>
                     <img className={styles.img} src={image} alt={title} />
                     <div className={styles.buttons}>
-                        <ButtonIcon
-                            style={styles.button}
-                            onClick={this.handleClick}
-                            icon={faEdit}
-                        />
-                        <ButtonIcon
-                            style={styles.button}
-                            onClick={() => removeSpectacle(id)}
-                            icon={faTimes}
-                        />
+                        <ButtonIcon style={styles.button} onClick={this.handleClick}>
+                            <i className="fas fa-edit"></i>
+                        </ButtonIcon>
+                        <ButtonIcon style={styles.button} onClick={() => removeSpectacle(id)}>
+                            <i className="fas fa-times"></i>
+                        </ButtonIcon>
                     </div>
                     <div className={styles.wrapper}>
                         <h2 className={styles.title}>{title}</h2>
@@ -49,7 +44,7 @@ class AdminList extends Component {
                         <p className={styles.price}>Cena: {price}PLN</p>
                     </div>
                 </div>
-                {isOpen ? (
+                {isOpen && (
                     <AdminModal
                         edit
                         handleClose={this.handleClose}
@@ -60,7 +55,7 @@ class AdminList extends Component {
                         description={description}
                         price={price}
                     />
-                ) : null}
+                )}
             </>
         );
     }

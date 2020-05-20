@@ -35,6 +35,11 @@
     display: block;
     color: $color-red;
     font-size: 12px;
+    visibility: hidden;
+}
+
+.warningActive {
+    visibility: visible;
 }
 
 @media (max-width: 800px) {

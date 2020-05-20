@@ -6,8 +6,6 @@ import {
     editSpectacle as editSpectacleAction,
 } from "../../../actions/index";
 import Button from "../../Button/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 class AdminModal extends Component {
     state = {
@@ -66,14 +64,13 @@ class AdminModal extends Component {
     render() {
         const { title, image, director, price, description, isError } = this.state;
         const { edit, id, handleClose } = this.props;
-        console.log(price);
         return (
             <div className={styles.modal}>
                 <div className={styles.wrapper}>
                     <h2 className={styles.title}>
                         {edit ? "Edytuj spektal" : "Dodaj nowy spektakl"}
                     </h2>
-                    <FontAwesomeIcon icon={faTimes} className={styles.icon} onClick={handleClose} />
+                    <i className={`fas fa-times ${styles.icon}`} onClick={handleClose}></i>
                     <form className={styles.form}>
                         <input
                             type="text"
@@ -115,9 +112,9 @@ class AdminModal extends Component {
                             className={styles.textarea}
                             onChange={this.handleChange}
                         />
-                        {isError ? (
+                        {isError && (
                             <p className={styles.error}>WSZYSTKIE POLA MUSZĄ BYĆ WYPEŁNIONE!</p>
-                        ) : null}
+                        )}
                     </form>
                     <Button
                         onClick={() => {

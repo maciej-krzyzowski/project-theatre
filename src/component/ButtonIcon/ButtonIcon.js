@@ -1,11 +1,10 @@
 import React from "react";
 import styles from "./ButtonIcon.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ButtonIcon = ({ style, onClick, icon }) => {
+const ButtonIcon = ({ style, onClick, children }) => {
     return (
         <button className={`${styles.icon} ${style}`} onClick={onClick}>
-            <FontAwesomeIcon icon={icon} />
+            {children}
         </button>
     );
 };

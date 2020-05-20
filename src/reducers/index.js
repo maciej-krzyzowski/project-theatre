@@ -1,60 +1,57 @@
-import { data } from "../data/data";
+import { spectacles } from "../data/spectacles";
+import {
+    ADD_ITEM_TO_CART,
+    REMOVE_ITEM_FROM_CART,
+    EMPTY_CART,
+    REMOVE_SPECTACLE,
+    ADD_SPECTACLE,
+    EDIT_SPECTACLE,
+    LOGIN,
+} from "../actions/index";
 
-const initialState = { ...data };
+const initialState = { spectacles, cart: [], isLogged: false };
 
 const rootReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "FILTERED_LIST":
-            let newList = data.spectacles;
-            if (action.payload.text.length >= 2) {
-                newList = state.spectacles.filter((spectacle) =>
-                    spectacle.title.toLowerCase().includes(action.payload.text.toLowerCase())
-                );
-            }
+    const { payload, type } = action;
+    switch (type) {
+        case ADD_ITEM_TO_CART:
             return {
                 ...state,
-                spectacles: [...newList],
+                cart: [...state.cart, payload],
             };
-
-        case "ADD_ITEM_TO_CART":
+        case REMOVE_ITEM_FROM_CART:
             return {
                 ...state,
-                cart: [...state.cart, action.payload],
+                cart: state.cart.filter((item) => item.id !== payload.id),
             };
-
-        case "REMOVE_ITEM_FROM_CART":
-            return {
-                ...state,
-                cart: [...state.cart.filter((item) => item.id !== action.payload.id)],
-            };
-
-        case "CLEARE_CART":
+        case EMPTY_CART:
             return {
                 ...state,
                 cart: [],
             };
-
-        case "REMOVE_SPECTACLE":
+        case REMOVE_SPECTACLE:
             return {
                 ...state,
-                spectacles: [...state.spectacles.filter((item) => item.id !== action.payload.id)],
+                spectacles: state.spectacles.filter((item) => item.id !== payload.id),
             };
-
-        case "ADD_SPECTACLE":
+        case ADD_SPECTACLE:
             return {
                 ...state,
-                spectacles: [...state.spectacles, action.payload],
+                spectacles: [payload, ...state.spectacles],
             };
-
-        case "EDIT_SPECTACLE":
-            const index = state.spectacles.findIndex((element) => element.id === action.payload.id);
-            const editedArray = [...state.spectacles];
-            editedArray[index] = action.payload;
+        case EDIT_SPECTACLE:
             return {
                 ...state,
-                spectacles: [...editedArray],
+                spectacles: state.spectacles.map((spectacle) => {
+                    if (spectacle.id === payload.id) return payload;
+                    return spectacle;
+                }),
             };
-
+        case LOGIN:
+            return {
+                ...state,
+                isLogged: !state.isLogged,
+            };
         default:
             return state;
     }

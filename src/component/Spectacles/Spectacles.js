@@ -1,25 +1,29 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import styles from "./Spectacles.module.scss";
 import List from "./List/List";
-import { filteredList as filteredListAction } from "../../actions/index";
+import { connect } from "react-redux";
 
 class Spectacles extends Component {
     state = {
-        spectacles: this.props.spectacles,
         search: "",
+        spectacles: this.props.spectacles,
     };
 
     handleChange = (e) => {
         const { value } = e.target;
-        const { spectacles, filteredList } = this.props;
+        const search = value.toLowerCase();
+        let filterList = this.props.spectacles;
+
+        if (value.length > 1) {
+            filterList = this.state.spectacles.filter((spectacle) =>
+                spectacle.title.toLowerCase().includes(search)
+            );
+        }
 
         this.setState({
             search: value,
-            spectacles: spectacles,
+            spectacles: filterList,
         });
-
-        filteredList(value);
     };
 
     render() {
@@ -55,8 +59,4 @@ class Spectacles extends Component {
 
 const mapStateToProps = ({ spectacles }) => ({ spectacles });
 
-const mapDispatchToProps = (dispatch) => ({
-    filteredList: (text) => dispatch(filteredListAction(text)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Spectacles);
+export default connect(mapStateToProps)(Spectacles);

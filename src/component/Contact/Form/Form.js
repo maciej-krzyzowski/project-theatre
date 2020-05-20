@@ -16,14 +16,12 @@ class Form extends Component {
         });
     };
 
-    handleSubmit = (e) => {
+    handleSubmit = () => {
         this.setState({
             fullName: "",
             email: "",
             text: "",
         });
-        e.preventDefault();
-        console.log(this.state);
     };
 
     render() {

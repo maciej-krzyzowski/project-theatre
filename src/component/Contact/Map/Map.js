@@ -1,14 +1,12 @@
 import React from "react";
 import styles from "./Map.module.scss";
 import GoogleMapReact from "google-map-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
 
 const Marker = ({ text }) => {
     return (
         <div className={styles.marker}>
             {text}
-            <FontAwesomeIcon icon={faMapMarker} />
+            <i className="fas fa-map-marker"></i>
         </div>
     );
 };

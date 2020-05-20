@@ -4,10 +4,9 @@ import styles from "./Cart.module.scss";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
     removeItemFromCart as removeItemFromCartAction,
-    clearCart as clearCartAction,
+    emptyCart as emptyCartAction,
 } from "../../actions/index";
 
 class Cart extends Component {
@@ -31,7 +30,7 @@ class Cart extends Component {
         this.setState({
             clicked: !this.state.clicked,
         });
-        this.props.clearCart();
+        this.props.emptyCart();
     };
 
     handleClose = () => {
@@ -75,8 +74,9 @@ class Cart extends Component {
                                 <ButtonIcon
                                     style={styles.buttonRemove}
                                     onClick={() => removeItemFromCart(element.id)}
-                                    icon={faTimes}
-                                />
+                                >
+                                    <i className="fas fa-times"></i>
+                                </ButtonIcon>
                             </div>
                         ))
                     ) : (
@@ -87,9 +87,7 @@ class Cart extends Component {
                         <Button onClick={this.handleOrder}>KUPUJE</Button>
                     </div>
                 </div>
-                {clicked ? (
-                    <Modal handleClose={this.handleClose} text="Potwierdzenie zakupu" icon />
-                ) : null}
+                {clicked && <Modal handleClose={this.handleClose} text="Potwierdzenie zakupu" />}
             </>
         );
     }
@@ -99,7 +97,7 @@ const mapStateToProps = ({ cart }) => ({ cart });
 
 const mapDispatchToProps = (dispatch) => ({
     removeItemFromCart: (id) => dispatch(removeItemFromCartAction(id)),
-    clearCart: () => dispatch(clearCartAction()),
+    emptyCart: () => dispatch(emptyCartAction()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
