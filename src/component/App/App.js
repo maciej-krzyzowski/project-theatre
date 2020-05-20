@@ -16,14 +16,14 @@ const App = () => {
         <div className={styles.wrapper}>
             <Router basename="/theatre">
                 <Navigation />
-                <Route exact path="/theatre" component={Home} />
+                <Route exact path="/" component={Home} />
                 <Container>
-                    <Route exact path="/theatre/spectacles/" component={Spectacles} />
-                    <Route path="/theatre/spectacles/:id" component={Spectacles} />
-                    <Route path="/theatre/contact" component={Contact} />
-                    <Route path="/theatre/cart" component={Cart} />
-                    <Route path="/theatre/login" component={Login} />
-                    <Route path="/theatre/admin" component={Admin} />
+                    <Route exact path="/spectacles/" component={Spectacles} />
+                    <Route path="/spectacles/:id" component={Spectacles} />
+                    <Route path="/contact" component={Contact} />
+                    <Route path="/cart" component={Cart} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/admin" component={Admin} />
                 </Container>
             </Router>
             <Footer />

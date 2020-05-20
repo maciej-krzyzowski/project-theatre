@@ -27,7 +27,7 @@ class Navigation extends React.Component {
             <div className={styles.header}>
                 <Container>
                     <div className={styles.wrapper}>
-                        <Link to="/theatre/" className={styles.logo}>
+                        <Link to="/" className={styles.logo}>
                             <span className={styles.decoration}>t</span>heatre
                             <span className={styles.decoration}>.</span>
                         </Link>
@@ -54,7 +54,7 @@ class Navigation extends React.Component {
                                     className={styles.link}
                                     exact
                                     activeClassName={styles.active}
-                                    to="/theatre/"
+                                    to="/"
                                 >
                                     Home
                                 </NavLink>
@@ -63,7 +63,7 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to="/theatre/spectacles"
+                                    to="/spectacles"
                                 >
                                     Spektakle
                                 </NavLink>
@@ -72,7 +72,7 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to="/theatre/contact"
+                                    to="/contact"
                                 >
                                     Kontakt
                                 </NavLink>
@@ -81,7 +81,7 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to="/theatre/cart"
+                                    to="/cart"
                                 >
                                     <i className="fas fa-shopping-cart"></i>
                                     <span>{cart.length}</span>
@@ -91,7 +91,7 @@ class Navigation extends React.Component {
                                 <NavLink
                                     className={styles.link}
                                     activeClassName={styles.active}
-                                    to={isLogged ? "/theatre/admin" : "/theatre/login"}
+                                    to={isLogged ? "/admin" : "/login"}
                                 >
                                     <i className="fas fa-users-cog"></i>
                                 </NavLink>
@@ -101,7 +101,7 @@ class Navigation extends React.Component {
                                     <NavLink
                                         className={styles.link}
                                         activeClassName={styles.active}
-                                        to="/theatre/login"
+                                        to="/login"
                                         onClick={this.props.login}
                                     >
                                         <i className="fas fa-sign-out-alt"></i>

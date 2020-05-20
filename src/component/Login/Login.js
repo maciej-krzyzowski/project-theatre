@@ -36,12 +36,11 @@ class Log extends Component {
         }
     };
 
-
     render() {
         const { text, password, showWarning } = this.state;
         const { isLogged } = this.props;
         if (isLogged) {
-            return <Redirect to="/theatre/admin" />;
+            return <Redirect to="/admin" />;
         }
         return (
             <div className={styles.log}>
