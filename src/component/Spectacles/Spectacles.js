@@ -26,19 +26,43 @@ class Spectacles extends Component {
         });
     };
 
+    handleSort = (e) => {
+        if (e.target.id === "title") {
+            this.setState({
+                spectacles: this.state.spectacles.sort((a, b) =>
+                    a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1
+                ),
+            });
+        }
+
+        if (e.target.id === "price") {
+            this.setState({
+                spectacles: this.state.spectacles.sort((a, b) => (a.price > b.price ? 1 : -1)),
+            });
+        }
+    };
+    r;
     render() {
         const { spectacles } = this.state;
         return (
             <div className={styles.spectacles}>
                 <div className={styles.wrapper}>
                     <h1 className={styles.title}>Spektakle</h1>
-                    <input
-                        className={styles.search}
-                        type="search"
-                        placeholder="Search..."
-                        value={this.state.search}
-                        onChange={this.handleChange}
-                    />
+                    <div className={styles.filtrWrapper}>
+                        <button id="title" className={styles.filterBtn} onClick={this.handleSort}>
+                            Filtruj A-Z
+                        </button>
+                        <button id="price" className={styles.filterBtn} onClick={this.handleSort}>
+                            Filtruj cene rosnąco
+                        </button>
+                        <input
+                            className={styles.search}
+                            type="search"
+                            placeholder="Search..."
+                            value={this.state.search}
+                            onChange={this.handleChange}
+                        />
+                    </div>
                 </div>
                 <div>
                     {spectacles.map((spectacle) => (

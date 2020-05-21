@@ -37,7 +37,6 @@ class Log extends Component {
     };
 
     handleEnterPress = (e) => {
-        console.log(e.key);
         if (e.key === "Enter") {
             this.handleLogIn();
         }

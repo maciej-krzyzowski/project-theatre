@@ -44,7 +44,7 @@ class List extends Component {
 
         return (
             <NavLink
-                to={`/theatre/spectacles/${title}`}
+                to={`/spectacles/${title}`}
                 className={styles.spectacles}
                 activeClassName={styles.active}
             >

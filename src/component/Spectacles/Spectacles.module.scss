@@ -20,26 +20,35 @@
     text-align: left;
 }
 
+.filtrWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .search {
     font-size: 18px;
     padding: 10px 10px;
     border: 1px solid $color-light;
     border-radius: 5px;
     outline: none;
+    margin: 0 10px;
+}
+
+.filterBtn {
+    margin: 0 10px;
+    border: none;
+    outline: none;
+    background-color: $color-white;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 1024px) {
     .spectacles {
         min-height: 80vh;
-    }
-
-    .wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .search {
-        margin: 10px 0 0 auto;
     }
 }
 
@@ -47,6 +56,26 @@
     .title {
         padding: 50px 0 0 25px;
         font-size: 38px;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filtrWrapper {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin: 15px 10px 0 auto;
+    }
+
+    .search {
+        margin: 5px 0;
+    }
+
+    .filterBtn {
+        margin: 5px 0;
     }
 }
 
