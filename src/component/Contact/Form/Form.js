@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./Form.module.scss";
 import Button from "../../Button/Button";
 import styled from "styled-components";
+import Modal from '../../Modal/Modal';
 import "../../../styles/global.scss";
 
 const Warning = styled.p`
@@ -17,6 +18,7 @@ class Form extends Component {
         email: "",
         text: "",
         isError: false,
+        clicked: false,
     };
 
     handleChange = (e) => {
@@ -35,6 +37,7 @@ class Form extends Component {
         } else {
             console.log("dupa");
             this.setState({
+                clicked: true,
                 isError: false,
                 fullName: "",
                 email: "",
@@ -43,39 +46,48 @@ class Form extends Component {
         }
     };
 
+    handleClose = () => {
+        this.setState({
+            clicked: !this.state.clicked,
+        });
+    };
+
     render() {
-        const { fullName, email, text, isError } = this.state;
+        const { fullName, email, text, isError, clicked } = this.state;
         return (
-            <form className={styles.form}>
-                <h2 className={styles.title}>Napisz do nas!</h2>
-                <input
-                    onChange={this.handleChange}
-                    className={styles.input}
-                    name="fullName"
-                    type="text"
-                    placeholder="Imię i nazwisko"
-                    value={fullName}
-                />
-                <Warning error={isError && fullName.length < 5 ? isError : null}>Podaj min. 5 znaki.</Warning>
-                <input
-                    onChange={this.handleChange}
-                    className={styles.input}
-                    name="email"
-                    type="text"
-                    placeholder="Email"
-                    value={email}
-                />
-                <Warning error={isError && !email.includes('@') ? isError : null}>Email musi zawierać "@".</Warning>
-                <textarea
-                    onChange={this.handleChange}
-                    className={styles.textarea}
-                    name="text"
-                    placeholder="Wpisz wiadmość..."
-                    value={text}
-                />
-                <Warning error={isError && text.length < 50 ? isError : null}>Wiadomość musi zawierać min. 50 znaków.</Warning>
-                <Button onClick={this.handleSubmit}>Wyślij</Button>
-            </form>
+            <>
+                <form className={styles.form}>
+                    <h2 className={styles.title}>Napisz do nas!</h2>
+                    <input
+                        onChange={this.handleChange}
+                        className={styles.input}
+                        name="fullName"
+                        type="text"
+                        placeholder="Imię i nazwisko"
+                        value={fullName}
+                    />
+                    <Warning error={isError && fullName.length < 5 ? isError : null}>Podaj min. 5 znaki.</Warning>
+                    <input
+                        onChange={this.handleChange}
+                        className={styles.input}
+                        name="email"
+                        type="text"
+                        placeholder="Email"
+                        value={email}
+                    />
+                    <Warning error={isError && !email.includes('@') ? isError : null}>Email musi zawierać "@".</Warning>
+                    <textarea
+                        onChange={this.handleChange}
+                        className={styles.textarea}
+                        name="text"
+                        placeholder="Wpisz wiadmość..."
+                        value={text}
+                    />
+                    <Warning error={isError && text.length < 50 ? isError : null}>Wiadomość musi zawierać min. 50 znaków.</Warning>
+                    <Button onClick={this.handleSubmit}>Wyślij</Button>
+                </form>
+                {clicked && <Modal handleClose={this.handleClose} text="Wiadomość została wysłana." />}
+            </>
         );
     }
 }
