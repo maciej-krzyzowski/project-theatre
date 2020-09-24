@@ -3,6 +3,7 @@
 .admin {
     color: $color-grey;
     min-height: 85vh;
+    margin-top: 10vh;
 }
 
 .header {
@@ -36,14 +37,17 @@
 }
 
 @media (max-width: 1024px) {
+    
     .admin {
         min-height: 80vh;
+        margin-top: 15vh;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+
     .title {
-        padding: 50px 0 0 25px;
+        padding: 50px 0 25px 25px;
         font-size: 38px;
     }
 
@@ -54,14 +58,14 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
+
     .title {
-        padding: 35px 0 0 15px;
+        padding: 35px 0 25px 15px;
         font-size: 26px;
     }
 
     .buttonAdd {
-        align-items: flex-start;
         font-size: 24px;
         width: 40px;
         height: 40px;

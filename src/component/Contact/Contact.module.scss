@@ -1,11 +1,12 @@
 @import "../../styles/global.scss";
 
 .contactWrapper {
-    height: 85vh;
+    margin-top: 10vh;
+    min-height: 85vh;
 }
 
 .title {
-    padding: 75px 0 0 25px;
+    padding: 75px 0 25px 25px;
     color: $color-grey;
     text-transform: uppercase;
     font-size: 42px;
@@ -17,15 +18,21 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .contact {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 50%;
 }
 
 .date {
-    text-align: right;
+    text-align: center;
+    margin: 10px auto;
 
     p {
         color: $color-grey;
@@ -35,14 +42,22 @@
 }
 
 @media (max-width: 1024px) {
+
     .contactWrapper {
-        height: auto;
+        margin-top: 15vh;
+        height: 80vh;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+
+    .contactWrapper {
+        margin-top: 15vh;
+        height: auto;
+    }
+
     .title {
-        padding: 50px 0 0 25px;
+        padding: 50px 0 25px 25px;
         font-size: 38px;
     }
 
@@ -51,10 +66,7 @@
     }
 
     .contact {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: space-around;
+        flex-direction: column-reverse;
         width: 100%;
         margin: 25px 0;
     }
@@ -66,14 +78,10 @@
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 576px) {
+    
     .title {
-        padding: 35px 0 0 25px;
+        padding: 35px 0 25px 25px;
         font-size: 32px;
-    }
-
-    .contact {
-        flex-direction: column;
-        align-items: center;
     }
 }

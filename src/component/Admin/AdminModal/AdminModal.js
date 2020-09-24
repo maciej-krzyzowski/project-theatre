@@ -5,6 +5,7 @@ import {
     addSpectacle as addSpectacleAction,
     editSpectacle as editSpectacleAction,
 } from "../../../actions/index";
+import Navigation from '../../Navigation/Navigation';
 import Button from "../../Button/Button";
 
 class AdminModal extends Component {
@@ -65,68 +66,71 @@ class AdminModal extends Component {
         const { title, image, director, price, description, isError } = this.state;
         const { edit, id, handleClose } = this.props;
         return (
-            <div className={styles.modal}>
-                <div className={styles.wrapper}>
-                    <h2 className={styles.title}>
-                        {edit ? "Edytuj spektal" : "Dodaj nowy spektakl"}
-                    </h2>
-                    <i className={`fas fa-times ${styles.icon}`} onClick={handleClose}></i>
-                    <form className={styles.form}>
-                        <input
-                            type="text"
-                            name="title"
-                            value={title}
-                            placeholder="Tytuł"
-                            className={styles.input}
-                            onChange={this.handleChange}
-                        />
-                        <input
-                            type="text"
-                            name="image"
-                            value={image}
-                            placeholder="Adres URL do zdjecia"
-                            className={styles.input}
-                            onChange={this.handleChange}
-                        />
-                        <input
-                            type="text"
-                            name="director"
-                            value={director}
-                            placeholder="Reżyser"
-                            className={styles.input}
-                            onChange={this.handleChange}
-                        />
-                        <input
-                            type="number"
-                            name="price"
-                            value={price}
-                            placeholder="Cena"
-                            className={styles.input}
-                            onChange={this.handleChange}
-                        />
-                        <textarea
-                            type="text"
-                            name="description"
-                            value={description}
-                            placeholder="Opis"
-                            className={styles.textarea}
-                            onChange={this.handleChange}
-                        />
-                        {isError && (
-                            <p className={styles.error}>WSZYSTKIE POLA MUSZĄ BYĆ WYPEŁNIONE!</p>
-                        )}
-                    </form>
-                    <Button
-                        onClick={() => {
-                            edit
-                                ? this.handleEdit(id, title, image, description, director, price)
-                                : this.handleAdd(title, image, director, description, price);
-                        }}
-                    >
-                        Zapisz
+            <>
+                <Navigation />
+                <div className={styles.modal}>
+                    <div className={styles.wrapper}>
+                        <h2 className={styles.title}>
+                            {edit ? "Edytuj spektal" : "Dodaj nowy spektakl"}
+                        </h2>
+                        <i className={`fas fa-times ${styles.icon}`} onClick={handleClose}></i>
+                        <form className={styles.form}>
+                            <input
+                                type="text"
+                                name="title"
+                                value={title}
+                                placeholder="Tytuł"
+                                className={styles.input}
+                                onChange={this.handleChange}
+                            />
+                            <input
+                                type="text"
+                                name="image"
+                                value={image}
+                                placeholder="Adres URL do zdjecia"
+                                className={styles.input}
+                                onChange={this.handleChange}
+                            />
+                            <input
+                                type="text"
+                                name="director"
+                                value={director}
+                                placeholder="Reżyser"
+                                className={styles.input}
+                                onChange={this.handleChange}
+                            />
+                            <input
+                                type="number"
+                                name="price"
+                                value={price}
+                                placeholder="Cena"
+                                className={styles.input}
+                                onChange={this.handleChange}
+                            />
+                            <textarea
+                                type="text"
+                                name="description"
+                                value={description}
+                                placeholder="Opis"
+                                className={styles.textarea}
+                                onChange={this.handleChange}
+                            />
+                            {isError && (
+                                <p className={styles.error}>WSZYSTKIE POLA MUSZĄ BYĆ WYPEŁNIONE!</p>
+                            )}
+                        </form>
+                        <Button
+                            onClick={() => {
+                                edit
+                                    ? this.handleEdit(id, title, image, description, director, price)
+                                    : this.handleAdd(title, image, director, description, price);
+                            }}
+                        >
+                            Zapisz
                     </Button>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 }

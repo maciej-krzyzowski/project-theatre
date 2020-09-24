@@ -42,7 +42,8 @@
     visibility: visible;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+    
     .button {
         padding: 3px 10px;
         font-size: 18px;
@@ -59,7 +60,8 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
+
     .button {
         padding: 3px 10px;
         font-size: 12px;

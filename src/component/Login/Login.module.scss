@@ -3,6 +3,7 @@
 .log {
     min-height: 85vh;
     color: $color-grey;
+    margin-top: 10vh;
 }
 
 .title {
@@ -62,8 +63,10 @@
 }
 
 @media (max-width: 1024px) {
+    
     .log {
         min-height: 80vh;
+        margin-top: 15vh;
     }
 
     .form {
@@ -75,7 +78,8 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    
     .title {
         font-size: 38px;
     }
@@ -89,9 +93,10 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+    
     .title {
-        font-size: 24px;
+        font-size: 32px;
     }
 
     .subtitle {
@@ -103,11 +108,10 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
+    
     .title {
+        font-size: 24px;
         padding-top: 50px;
     }
 }
-
-// @media (max-width: 500px) {
-// }

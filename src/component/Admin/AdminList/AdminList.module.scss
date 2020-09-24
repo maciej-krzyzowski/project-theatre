@@ -66,7 +66,8 @@
     font-size: 20px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+    
     .img {
         height: 125px;
         min-width: 125px;
@@ -74,6 +75,11 @@
 
     .title {
         font-size: 20px;
+    }
+
+    .buttons {
+        top: 10px;
+        right: 10px;
     }
 
     .director {
@@ -86,10 +92,15 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
+
     .spectacles {
         padding: 10px;
         margin: 15px 0;
+    }
+
+    .wrapper {
+        margin: 10px 0 0 35px;
     }
 
     .img {
@@ -108,6 +119,7 @@
 }
 
 @media (max-width: 400px) {
+
     .img {
         height: 75px;
         min-width: 75px;

@@ -1,6 +1,7 @@
 @import "../../styles/global.scss";
 
 .spectacles {
+    margin-top: 10vh;
     min-height: 85vh;
 }
 
@@ -13,7 +14,7 @@
 
 .title {
     display: inline-block;
-    padding: 75px 0 0 25px;
+    padding: 75px 0 25px 25px;
     color: $color-grey;
     text-transform: uppercase;
     font-size: 42px;
@@ -39,6 +40,9 @@
     margin: 0 10px;
     border: none;
     outline: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 1px solid $color-light;
     background-color: $color-white;
 
     &:hover {
@@ -47,19 +51,21 @@
 }
 
 @media (max-width: 1024px) {
+    
     .spectacles {
         min-height: 80vh;
+        margin-top: 15vh;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+
     .title {
-        padding: 50px 0 0 25px;
+        padding: 50px 0 25px 25px;
         font-size: 38px;
     }
 
     .wrapper {
-        flex-direction: column;
         align-items: flex-start;
     }
 
@@ -67,7 +73,7 @@
         flex-direction: column-reverse;
         align-items: flex-end;
         justify-content: flex-end;
-        margin: 15px 10px 0 auto;
+        padding-top: 50px;
     }
 
     .search {
@@ -75,13 +81,24 @@
     }
 
     .filterBtn {
+        padding: 5px 8px;
         margin: 5px 0;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .filtrWrapper {
+        padding-top: 25px;
+        margin-left: auto;
+    }
+
     .title {
-        padding: 35px 0 0 25px;
+        padding: 35px 0 25px 25px;
         font-size: 32px;
     }
 }

@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import styles from "./Form.module.scss";
 import Button from "../../Button/Button";
+import styled from "styled-components";
+import "../../../styles/global.scss";
+
+const Warning = styled.p`
+    color: #942727;
+    font-size: 12px;
+    margin: 5px 0 15px 0;
+    visibility: ${({error}) => error === true ? 'visible' : 'hidden'};
+`;
 
 class Form extends Component {
     state = {
         fullName: "",
         email: "",
         text: "",
+        isError: false,
     };
 
     handleChange = (e) => {
@@ -17,15 +27,24 @@ class Form extends Component {
     };
 
     handleSubmit = () => {
-        this.setState({
-            fullName: "",
-            email: "",
-            text: "",
-        });
+        const { fullName, email, text } = this.state;
+        if(fullName.length < 5 || !email.includes('@') || text.lenght < 50){
+            this.setState({
+                isError: true,
+            });
+        } else {
+            console.log("dupa");
+            this.setState({
+                isError: false,
+                fullName: "",
+                email: "",
+                text: "",
+            });
+        }
     };
 
     render() {
-        const { fullName, email, text } = this.state;
+        const { fullName, email, text, isError } = this.state;
         return (
             <form className={styles.form}>
                 <h2 className={styles.title}>Napisz do nas!</h2>
@@ -37,6 +56,7 @@ class Form extends Component {
                     placeholder="Imię i nazwisko"
                     value={fullName}
                 />
+                <Warning error={isError && fullName.length < 5 ? isError : null}>Podaj min. 5 znaki.</Warning>
                 <input
                     onChange={this.handleChange}
                     className={styles.input}
@@ -45,6 +65,7 @@ class Form extends Component {
                     placeholder="Email"
                     value={email}
                 />
+                <Warning error={isError && !email.includes('@') ? isError : null}>Email musi zawierać "@".</Warning>
                 <textarea
                     onChange={this.handleChange}
                     className={styles.textarea}
@@ -52,6 +73,7 @@ class Form extends Component {
                     placeholder="Wpisz wiadmość..."
                     value={text}
                 />
+                <Warning error={isError && text.length < 50 ? isError : null}>Wiadomość musi zawierać min. 50 znaków.</Warning>
                 <Button onClick={this.handleSubmit}>Wyślij</Button>
             </form>
         );

@@ -1,22 +1,23 @@
 @import "../../../styles/global.scss";
 
 .form {
-    margin: 30px 0 0 50px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: 90%;
 }
 
 .title {
     font-size: 26px;
     color: $color-pink;
+    margin-bottom: 20px;
 }
 
 .input {
     outline: none;
-    margin: 20px 0 0 0;
     height: 40px;
     width: 100%;
+    margin-top: 0;
     padding: 10px 15px;
     border: 2px solid grey;
     border-radius: 10px;
@@ -24,7 +25,7 @@
 
 .textarea {
     outline: none;
-    margin: 20px 0;
+    margin: 0;
     height: 150px;
     width: 100%;
     padding: 10px 15px;
@@ -35,19 +36,13 @@
 .warning {
     color: $color-red;
     font-size: 12px;
-    margin-top: 10px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    
     .form {
-        margin: 0;
-        align-items: center;
-        width: 45%;
-    }
-}
-
-@media (max-width: 650px) {
-    .form {
-        width: 100%;
+        margin: 0 auto;
+        align-items: flex-end;
+        width: 90%;
     }
 }

@@ -4,6 +4,7 @@
     display: flex;
     min-height: 85vh;
     flex-direction: column;
+    margin-top: 10vh;
 }
 
 .title {
@@ -13,6 +14,7 @@
     text-transform: uppercase;
     font-size: 42px;
     text-align: left;
+    margin-bottom: 40px;
 }
 
 .wrapper {
@@ -68,7 +70,7 @@
     width: 100%;
     border-top: 1px solid $color-light;
     padding-top: 25px;
-    margin: 25px 0 75px auto;
+    margin: 0 0 75px auto;
     color: $color-grey;
     font-size: 26px;
 }
@@ -78,26 +80,26 @@
 }
 
 @media (max-width: 1024px) {
+
     .cart {
         min-height: 80vh;
+        margin-top: 15vh;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    
     .title {
-        padding: 50px 0 0 25px;
+        padding: 50px 0 25px 25px;
         font-size: 38px;
     }
 }
 
-@media (max-width: 800px) {
-    .title {
-        font-size: 20px;
-    }
+@media (max-width: 768px) {
 
-    .wrapper {
-        margin: 15px 0;
-        padding: 25px 0;
+    .title {
+        padding: 35px 0 25px 25px;
+        font-size: 32px;
     }
 
     .spectaclesTitle {
@@ -118,9 +120,10 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
+    
     .title {
-        padding: 35px 0 0 25px;
+        padding: 35px 0 25px 25px;
     }
 
     .spectaclesTitle {
@@ -135,9 +138,7 @@
     .price {
         font-size: 16px;
     }
-}
 
-@media (max-width: 500px) {
     .spectaclesTitle {
         font-size: 16px;
     }

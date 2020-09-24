@@ -73,15 +73,6 @@ export const spectacles = [
     },
     {
         id: 8,
-        title: "Cud",
-        image: "https://ebilet-media.azureedge.net/media/32088/2019_ebilet_cud_900x507450.jpg",
-        description:
-            "Przymusowy pobyt Hubertusa Nowaka w małym hiszpańskim miasteczku, nie jest mu w smak. Awaria samochodu, telefoniczna gorąca linia z prawnikiem w sprawie papierów rozwodowych i perspektywa spędzenia nocy w podrzędnym hotelu niegrzeszącym luksusami. Ale… to nie koniec nieprzyjemnych zdarzeń, które tego dnia spadną na głowę producenta desek klozetowych. Gdy pogodzony z niesprzyjającym mu losem, zmęczony Hubertus szykuje się do snu, niefortunny bieg wypadków rozkręca się na dobre. W jego pokoju zjawia się młoda studentka. W całym San Miguel pokoi brak, więc strudzona podróżniczka rozpoczyna noclegowe negocjacje.  Nie chcąc okazać się potworem, Nowak lituje się nad biedną dziewczyną. W końcu to tylko jedna noc. Obydwoje nie przeczuwają nawet, że będzie to noc pełna cudów… Komiczna zabawa w zgadywankę kto jest kim z pewnością rozbawi publiczność do łez. Ale i dla widzów szykuje się niespodzianka. Ich również czeka przemiana. Polska widownia przeobrazi się w hiszpańską. A do tego jej rola w tej niezwykłej opowieści będzie nie do przecenienia. W końcu co wieczór zasiadać będzie na niej mechanik, naprawiający samochód głównego bohatera.",
-        director: "Andrzej Rozhin",
-        price: 79,
-    },
-    {
-        id: 9,
         title: "Ucho Prezesa czyli SCHEDA",
         image: "https://ebilet-media.azureedge.net/media/29626/up-ebilet-900x507450.jpg",
         description:
@@ -90,12 +81,30 @@ export const spectacles = [
         price: 159,
     },
     {
-        id: 10,
+        id: 9,
         title: "Piękna Lucynda",
         image: "https://ebilet-media.azureedge.net/media/31861/900x507-1_ebilet450.jpg",
         description:
             "Piękna Lucynda jest błyskotliwym persyflażem „Natrętów” Zygmunta Bielawskiego, pierwszej polskiej komedii napisanej w języku ojczystym w 1765 roku. Różnorakie formy wykorzystanego komizmu - od klasycznego charakterów i sytuacji po żarty o kabaretowym rodowodzie - składają się na doskonałą zabawę z formą, gatunkiem i tradycją, za którą skrywa się kunsztowne piękno i wzruszająca poezja minionych epok teatru literackiego.",
         director: "Eugeniusz Korin",
         price: 19,
+    },
+    {
+        id: 10,
+        title: "ART - Premiera!",
+        image: "https://teatr6pietro.pl/wp-content/uploads/2019/11/1920x824-1-1.jpg",
+        description:
+            "Dyskusja na temat obrazu kupionego przez jednego z trzech przyjaciół za zawrotną kwotę dwustu tysięcy euro, uruchamia lawinę takich emocji, że zaczynają one zagrażać ich wieloletniej znajomości. Zbudowana ze znakomitych obserwacji psychologicznych, historia trzech mężczyzn, zmagających się z problemami wieku średniego, staje się pretekstem do pełnej mądrości opowieści o wartościach, którymi kierujemy się w życiu i o tym, że sztuka jest warta tyle, ile miejsca potrafi zająć w naszych sercach i głowach.",
+        director: "Eugeniusz Korin",
+        price: 119,
+    },
+    {
+        id: 11,
+        title: "Folk IT!",
+        image: "https://teatr6pietro.pl/wp-content/uploads/2020/01/www-1920x824.jpg",
+        description:
+            "Julia Pietrucha wraca do koncertowania po bardzo udanej wiośnie! Artystka od kilkunastu sezonów z sukcesem koncertuje po Polsce zarażając publiczność swoją energią oraz wyjątkowymi piosenkami. Podczas najnowszej trasy wraz z Julią na scenie pojawią się multiinstrumentaliści, z którymi od nowa zaaranżowała znane dotychczas utwory.",
+        director: "Julia Pietrucha",
+        price: 219,
     },
 ];

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styles from "./Cart.module.scss";
+import Navigation from '../Navigation/Navigation'
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
@@ -57,6 +58,7 @@ class Cart extends Component {
         const { cart, removeItemFromCart } = this.props;
         return (
             <>
+                <Navigation />
                 <div className={styles.cart}>
                     <h1 className={styles.title}>Koszyk</h1>
                     {cart.length ? (
@@ -80,8 +82,8 @@ class Cart extends Component {
                             </div>
                         ))
                     ) : (
-                        <p className={styles.empty}>Koszyk jest pusty</p>
-                    )}
+                            <p className={styles.empty}>Koszyk jest pusty</p>
+                        )}
                     <div className={styles.summary}>
                         <p className={styles.order}>Do zapłaty: {finalPrice}PLN</p>
                         <Button onClick={this.handleOrder}>KUPUJE</Button>

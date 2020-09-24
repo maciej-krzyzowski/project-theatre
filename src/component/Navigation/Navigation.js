@@ -5,9 +5,24 @@ import { connect } from "react-redux";
 import { login as loginAction } from "../../actions/index";
 import Container from "../Container/Container";
 import HamburgerMenu from "react-hamburger-menu";
+import "../../styles/global.scss";
+import styled from "styled-components";
+
+const Header = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: ${props => props.pathname === '/theatre/' ? 'none' : '#333'};
+    color: #fff;
+    width: 100vw;
+    z-index: 1;
+`;
 
 class Navigation extends React.Component {
-    state = { isOpen: false };
+    state = {
+        isOpen: false,
+    };
 
     handleClick = () => {
         this.setState({
@@ -22,9 +37,10 @@ class Navigation extends React.Component {
     };
 
     render() {
+        const { isOpen } = this.state;
         const { cart, isLogged } = this.props;
         return (
-            <div className={styles.header}>
+            <Header pathname={window.location.pathname}>
                 <Container>
                     <div className={styles.wrapper}>
                         <Link to="/" className={styles.logo}>
@@ -34,7 +50,7 @@ class Navigation extends React.Component {
                         {window.innerWidth <= 1024 && (
                             <HamburgerMenu
                                 className={styles.hamburger}
-                                isOpen={this.state.isOpen}
+                                isOpen={isOpen}
                                 menuClicked={this.handleClick}
                                 width={30}
                                 height={20}
@@ -47,7 +63,7 @@ class Navigation extends React.Component {
                         )}
                         <ul
                             onClick={window.innerWidth <= 1024 ? this.handleClose : null}
-                            className={`${styles.list} ${this.state.isOpen && styles.listActvie}`}
+                            className={`${styles.list} ${isOpen && styles.listActvie}`}
                         >
                             <li className={styles.element}>
                                 <NavLink
@@ -111,7 +127,7 @@ class Navigation extends React.Component {
                         </ul>
                     </div>
                 </Container>
-            </div>
+            </Header>
         );
     }
 }

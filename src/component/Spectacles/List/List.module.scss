@@ -6,7 +6,7 @@
     }
 
     .wrapper {
-        margin: 15px 0 15px 15px;
+        margin: 15px 0 15px 35px;
     }
 
     .descriptionActive {
@@ -77,7 +77,8 @@
     font-size: 20px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+    
     .img {
         height: 125px;
         min-width: 125px;
@@ -97,7 +98,8 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
+
     .spectacles {
         padding: 10px;
         margin: 15px 0;
@@ -119,6 +121,7 @@
 }
 
 @media (max-width: 400px) {
+
     .img {
         height: 75px;
         min-width: 75px;

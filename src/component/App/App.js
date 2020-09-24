@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./App.module.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navigation from "../Navigation/Navigation";
 import Container from "../Container/Container";
 import Home from "../Home/Home";
 import Spectacles from "../Spectacles/Spectacles";
@@ -14,8 +13,7 @@ import Footer from "../Footer/Footer";
 const App = () => {
     return (
         <div className={styles.wrapper}>
-            <Router basename="/theatre">
-                <Navigation />
+            <Router basename="/theatre/">
                 <Route exact path="/" component={Home} />
                 <Container>
                     <Route exact path="/spectacles/" component={Spectacles} />
